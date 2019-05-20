@@ -1,0 +1,22 @@
+
+<div class="container">
+  <h1>My restaurants</h1>
+  <table>
+    <thead class="font-weight-bold">
+      <tr>
+        <td>Name</td>
+        <td>Category</td>
+      </tr>
+    </thead>
+    <% @restaurants.each do |restaurant| %>
+    <tbody>
+      <tr>
+        <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+        <td><%= restaurant.category %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <hr>
+  <%= link_to '<i class="fa fa-plus-circle"></i> Add a new restaurant'.html_safe, new_restaurant_path %>
+</div>

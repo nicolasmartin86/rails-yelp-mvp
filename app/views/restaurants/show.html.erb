@@ -1,0 +1,24 @@
+
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p> <%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <h2><%= @restaurant.name %>'s Reviews</h2>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <% (1..review.rating).to_a.each do %>
+          <i class="fa fa-star"></i>
+        <% end %>
+        <% blank_star = 5 - review.rating %>
+        <% (1..blank_star).to_a.each do %>
+          <i class="far fa-star"></i>
+        <% end %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+<%= link_to '<i class="fa fa-comments"></i> Add a review'.html_safe, new_restaurant_review_path(@restaurant) %>
+<%= link_to '<i class="fa fa-th-list"></i> Back to restaurants list'.html_safe, restaurants_path %>
+</div>
+

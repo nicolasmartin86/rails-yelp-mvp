@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Add a new review</h1>
+
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.collection_radio_buttons :rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+      <%= b.radio_button(class: "collection_radio_buttons icon-star") + b.label(class: "collection_radio_buttons icon-star") %>
+    <% end %>
+    <%= f.submit "Add a review", class: "btn btn-primary" %>
+  <% end %>
+</div>
